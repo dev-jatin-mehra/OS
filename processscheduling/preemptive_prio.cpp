@@ -17,7 +17,7 @@ int main() {
 
     p[19] = -1;
 
-    int last_completion_time[20];
+    int ct[20];
 
     for (time = 0; completed != n; time++) {
         largest = 19;
@@ -32,9 +32,9 @@ int main() {
 
         if (remaining_burst[largest] == 0) {
             completed++;
-            last_completion_time[largest] = time + 1;
-            tat += last_completion_time[largest] - a[largest];
-            wt += last_completion_time[largest] - a[largest] - b[largest];
+            ct[largest] = time + 1;
+            tat += ct[largest] - a[largest];
+            wt += ct[largest] - a[largest] - b[largest];
         }
     }
 

@@ -17,7 +17,7 @@ int main()
     for(i = 0; i < n; i++)
         cin >> b[i];
 
-    for(i = 0; i < n; i++).
+    for(i = 0; i < n; i++)
         x[i] = b[i];  
 
     b[9] = 9999;  

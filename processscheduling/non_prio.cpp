@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int n, i, j, time = 0, largest;
     int a[20], b[20], p[20], completed = 0;
-    int start_time[20], completion_time[20], last_completion_time[20];
+    int completion_time[20], last_completion_time[20];
     float tat = 0, wt = 0;
 
     cout << "Enter the number of processes: ";
@@ -30,10 +30,10 @@ int main() {
             time++; 
             continue;
         }
-        start_time[largest] = time; 
+        // start_time[largest] = time; 
         time += b[largest]; 
         completion_time[largest] = time;
-        last_completion_time[largest] = completion_time[largest];
+        last_completion_time[largest] = time;
 
         tat += completion_time[largest] - a[largest];
         wt += completion_time[largest] - a[largest] - b[largest];
