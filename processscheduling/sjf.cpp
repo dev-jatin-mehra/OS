@@ -20,24 +20,19 @@ int main()
         cin >> b[i];
         x[i] = b[i]; // Keep a copy of Burst Times
     }
-
-    while (remain != n)
+    b[9] = 9999;
+    for (time = 0; remain != n;)
     {
-        smallest = -1;
-
-        // Find the process with the smallest burst time among ready processes
+        smallest = 9;
         for (int i = 0; i < n; i++)
         {
-            if (a[i] <= time && !completed[i])
+            if (a[i] <= time && b[i] < b[smallest] && b[i] > 0)
             {
-                if (smallest == -1 || b[i] < b[smallest])
-                {
-                    smallest = i;
-                }
+                smallest = i;
             }
         }
 
-        if (smallest == -1) // No process is ready; increment time
+        if (smallest == 9)
         {
             time++;
             continue;
@@ -48,7 +43,7 @@ int main()
         ct[smallest] = time;                        // Completion time
         tat[smallest] = ct[smallest] - a[smallest]; // Turnaround time
         wt[smallest] = tat[smallest] - x[smallest]; // Waiting time
-        completed[smallest] = 1;                    // Mark process as completed
+        b[smallest] = 0;
         remain++;
     }
 
